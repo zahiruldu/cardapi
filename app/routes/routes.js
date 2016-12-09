@@ -1,11 +1,11 @@
 var  path = require('path');
 var users = require(__dirname + '/../controller/user.controller');
+var cards = require(__dirname + '/../controller/card.controller');
+var cardsets = require(__dirname + '/../controller/cardset.controller');
+var groups = require(__dirname + '/../controller/group.controller');
+var answers = require(__dirname + '/../controller/answer.controller');
 var mongoose = require("mongoose");
-// importing model
-var User = mongoose.model('User');
-var Group = mongoose.model('Group');
-var Card = mongoose.model('Card');
-var Cardset = mongoose.model('Cardset');
+
 // importing auth middleware
 var isAuthenticate = require('../config/middleware/authenticate');
 
@@ -18,6 +18,8 @@ module.exports = function(app,passport){
 	app.route('/register').post(users.register);
 	app.route('/login').post(users.login);
 	app.route('/home').get(authRequired,users.home);
+	app.route('/createCard').post(authRequired,cards.create);
+	app.route('/createCardset').post(authRequired,cardsets.create);
 
 
 

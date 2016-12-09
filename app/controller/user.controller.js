@@ -13,7 +13,7 @@ exports.index = function(req, res){
 };
 exports.home = function(req, res){
 	res.send('hello home')
-}
+};
 
 exports.register = function(req,res){
 	  var query = {
@@ -55,7 +55,7 @@ exports.register = function(req,res){
 	      });
 	    }
 	  }
-}
+};
 
 
 /*
@@ -81,5 +81,7 @@ exports.login = function(req, res) {
         }
       })
     })
-  }
+  };
 
+
+module.exports = exports;
